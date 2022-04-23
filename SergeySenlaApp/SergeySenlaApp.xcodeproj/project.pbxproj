@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F98750328141AE10069B40B /* CleanPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9874FD28141AE10069B40B /* CleanPresenter.swift */; };
+		3F98750428141AE10069B40B /* CleanWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9874FE28141AE10069B40B /* CleanWorker.swift */; };
+		3F98750528141AE10069B40B /* CleanRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9874FF28141AE10069B40B /* CleanRouter.swift */; };
+		3F98750628141AE10069B40B /* CleanModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F98750028141AE10069B40B /* CleanModels.swift */; };
+		3F98750728141AE10069B40B /* CleanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F98750128141AE10069B40B /* CleanViewController.swift */; };
+		3F98750828141AE10069B40B /* CleanInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F98750228141AE10069B40B /* CleanInteractor.swift */; };
 		A55DAC062800F6C200EAC72F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DAC052800F6C200EAC72F /* AppDelegate.swift */; };
 		A55DAC082800F6C200EAC72F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DAC072800F6C200EAC72F /* SceneDelegate.swift */; };
 		A55DAC0A2800F6C200EAC72F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DAC092800F6C200EAC72F /* ViewController.swift */; };
@@ -19,6 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F9874FD28141AE10069B40B /* CleanPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanPresenter.swift; sourceTree = "<group>"; };
+		3F9874FE28141AE10069B40B /* CleanWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanWorker.swift; sourceTree = "<group>"; };
+		3F9874FF28141AE10069B40B /* CleanRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanRouter.swift; sourceTree = "<group>"; };
+		3F98750028141AE10069B40B /* CleanModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanModels.swift; sourceTree = "<group>"; };
+		3F98750128141AE10069B40B /* CleanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanViewController.swift; sourceTree = "<group>"; };
+		3F98750228141AE10069B40B /* CleanInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanInteractor.swift; sourceTree = "<group>"; };
 		A55DAC022800F6C200EAC72F /* SergeySenlaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SergeySenlaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55DAC052800F6C200EAC72F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A55DAC072800F6C200EAC72F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +55,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F98750928141B0B0069B40B /* Clean */ = {
+			isa = PBXGroup;
+			children = (
+				3F9874FD28141AE10069B40B /* CleanPresenter.swift */,
+				3F9874FE28141AE10069B40B /* CleanWorker.swift */,
+				3F9874FF28141AE10069B40B /* CleanRouter.swift */,
+				3F98750028141AE10069B40B /* CleanModels.swift */,
+				3F98750128141AE10069B40B /* CleanViewController.swift */,
+				3F98750228141AE10069B40B /* CleanInteractor.swift */,
+			);
+			path = Clean;
+			sourceTree = "<group>";
+		};
 		A55DABF92800F6C200EAC72F = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +100,7 @@
 		A55DAC1E2800F9E000EAC72F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3F98750928141B0B0069B40B /* Clean */,
 				A55DAC1F2800F9E700EAC72F /* Controllers */,
 			);
 			path = Modules;
@@ -163,8 +189,14 @@
 			files = (
 				A55DAC0A2800F6C200EAC72F /* ViewController.swift in Sources */,
 				A55DAC1C2800F9D900EAC72F /* TabBarController.swift in Sources */,
+				3F98750728141AE10069B40B /* CleanViewController.swift in Sources */,
+				3F98750528141AE10069B40B /* CleanRouter.swift in Sources */,
+				3F98750428141AE10069B40B /* CleanWorker.swift in Sources */,
+				3F98750628141AE10069B40B /* CleanModels.swift in Sources */,
+				3F98750328141AE10069B40B /* CleanPresenter.swift in Sources */,
 				A55DAC242800FAF400EAC72F /* CubeGameController.swift in Sources */,
 				A55DAC212800FA8B00EAC72F /* NavigationController.swift in Sources */,
+				3F98750828141AE10069B40B /* CleanInteractor.swift in Sources */,
 				A55DAC062800F6C200EAC72F /* AppDelegate.swift in Sources */,
 				A55DAC272800FB6F00EAC72F /* RockPaperScissorsController.swift in Sources */,
 				A55DAC082800F6C200EAC72F /* SceneDelegate.swift in Sources */,
