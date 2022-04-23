@@ -5,12 +5,16 @@
 //  Created by Сергей Куликов on 08.04.2022.
 //
 
+
+// DEPRECATED
+
 import UIKit
 
-class NavigationController: UINavigationController {
+final class NavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
 
 }

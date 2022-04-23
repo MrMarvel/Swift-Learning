@@ -7,14 +7,13 @@
 
 import UIKit
 
-class RockPaperScissorsController: UIViewController {
+final class RockPaperScissorsController: UIViewController {
     
     var nameOfGame: UILabel! = {
             let label = UILabel()
             label.text = "Rock Paper Scissors Game"
             label.numberOfLines = 0
             label.sizeToFit()
-            label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
     
@@ -22,7 +21,6 @@ class RockPaperScissorsController: UIViewController {
         let label = UILabel()
         label.text = ""
         label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.isHidden = true
         return label
     }()
@@ -42,14 +40,14 @@ class RockPaperScissorsController: UIViewController {
     }()
     
     private lazy var rockButton: UIButton = {
-        let rockButton = UIButton()
+        let rockButton = UIButton(frame: CGRect(origin: .zero, size: .init(width: 224, height: 55)))
         rockButton.setTitle("👊🏿", for: .normal)
+        rockButton.titleLabel?.font = .systemFont(ofSize: 65)
         rockButton.backgroundColor = .systemGray3
         rockButton.addAction(UIAction() { [weak self] _ in
             self?.rockButtonAction()
         }, for: .touchUpInside)
         rockButton.layer.cornerRadius = 20
-            rockButton.translatesAutoresizingMaskIntoConstraints = false
         return rockButton
     }()
     
@@ -61,7 +59,6 @@ class RockPaperScissorsController: UIViewController {
             self?.paperButtonAction()
         }, for: .touchUpInside)
         paperButton.layer.cornerRadius = 20
-        paperButton.translatesAutoresizingMaskIntoConstraints = false
         return paperButton
     }()
     
@@ -73,7 +70,6 @@ class RockPaperScissorsController: UIViewController {
             self?.scissorsButtonAction()
         }, for: .touchUpInside)
         scissorsButton.layer.cornerRadius = 20
-        scissorsButton.translatesAutoresizingMaskIntoConstraints = false
         return scissorsButton
     }()
     
@@ -114,38 +110,88 @@ class RockPaperScissorsController: UIViewController {
         setupView()
     }
     
+    let padding = CGFloat(15)
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        rockButton.center = view.center
-        paperButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        scissorsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        restartButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        scissorsButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 520).isActive = true
-        paperButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 475).isActive = true
-        restartButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 350).isActive = true
-
-        
-        rockButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        rockButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
-        
-        paperButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        paperButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
-        
-        scissorsButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        scissorsButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
-        
-        restartButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        restartButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
+        makeConstraints()
         
         
+//        rockButton.center = view.center
+//        paperButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        scissorsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        restartButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//
+//        scissorsButton.topAnchor.constraint(equalTo: view.topAnchor, constant: ).isActive = true
+//        paperButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 475).isActive = true
+//        restartButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 350).isActive = true
+//
+        
+       /*
+        
+        */
+//
+//        rockButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
+//        rockButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
+//
+//        paperButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
+//        paperButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
+//
+//        scissorsButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
+//        scissorsButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
+//
+//        restartButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
+//        restartButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
+//
+//
         ResultLabel.center = view.center
+        restartButton.center = view.center
     }
     
 }
 
 private extension RockPaperScissorsController {
+    
+    func makeConstraints() {
+        rockButton.translatesAutoresizingMaskIntoConstraints = false
+        paperButton.translatesAutoresizingMaskIntoConstraints = false
+        scissorsButton.translatesAutoresizingMaskIntoConstraints = false
+        nameOfGame.translatesAutoresizingMaskIntoConstraints = false
+        
+        let height = CGFloat(5)
+        
+        NSLayoutConstraint.activate([
+            rockButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            rockButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            rockButton.leadingAnchor.constraint(equalTo: nameOfGame.leadingAnchor),
+            rockButton.trailingAnchor.constraint(equalTo: nameOfGame.trailingAnchor),
+            
+            nameOfGame.centerXAnchor.constraint(equalTo: rockButton.centerXAnchor),
+            nameOfGame.bottomAnchor.constraint(equalTo: rockButton.topAnchor, constant: padding),
+            
+            paperButton.centerXAnchor.constraint(equalTo: rockButton.centerXAnchor),
+            paperButton.topAnchor.constraint(equalTo: rockButton.bottomAnchor, constant: padding),
+            paperButton.leadingAnchor.constraint(equalTo: nameOfGame.leadingAnchor),
+            paperButton.trailingAnchor.constraint(equalTo: nameOfGame.trailingAnchor),
+            
+            scissorsButton.centerXAnchor.constraint(equalTo: paperButton.centerXAnchor),
+            scissorsButton.topAnchor.constraint(equalTo: paperButton.bottomAnchor, constant: padding),
+            scissorsButton.leadingAnchor.constraint(equalTo: nameOfGame.leadingAnchor),
+            scissorsButton.trailingAnchor.constraint(equalTo: nameOfGame.trailingAnchor),
+//
+//            rockButton.heightAnchor.constraint(equalToConstant: 36),
+//            rockButton.widthAnchor.constraint(equalToConstant: 224),
+//
+//            paperButton.heightAnchor.constraint(equalToConstant: 36),
+//            paperButton.widthAnchor.constraint(equalToConstant: 224),
+//
+//            scissorsButton.heightAnchor.constraint(equalToConstant: 36),
+//            scissorsButton.widthAnchor.constraint(equalToConstant: 224),
+//
+//            restartButton.heightAnchor.constraint(equalToConstant: 36),
+//            restartButton.widthAnchor.constraint(equalToConstant: 224),
+        ])
+    }
     
     @objc func actionLanguage(paramTarget: UISwitch) {
         if languageSwitch.isOn {

@@ -7,44 +7,44 @@
 
 import UIKit
 
-class CubeGameController: UIViewController {
+final class CubeGameController: UIViewController {
     
-    var cubeLabel1: UILabel = {
+    private let cubeLabel1: UILabel = {
         let label = UILabel(frame: CGRect(x: 154, y: 250, width: 80, height: 80))
         label.text = "1️⃣"
         label.isHidden = false
         return label
     }()
     
-    var cubeLabel2: UILabel = {
+    private let cubeLabel2: UILabel = {
         let label = UILabel(frame: CGRect(x: 224, y: 250, width: 80, height: 80))
         label.text = "2️⃣"
         label.isHidden = false
         return label
     }()
     
-    var cubeLabel3: UILabel = {
+    private let cubeLabel3: UILabel = {
         let label = UILabel(frame: CGRect(x: 154, y: 285, width: 80, height: 80))
         label.text = "3️⃣"
         label.isHidden = false
         return label
     }()
     
-    var cubeLabel4: UILabel = {
+    private let cubeLabel4: UILabel = {
         let label = UILabel(frame: CGRect(x: 224, y: 285, width: 80, height: 80))
         label.text = "4️⃣"
         label.isHidden = false
         return label
     }()
     
-    var cubeLabel5: UILabel = {
+    private let cubeLabel5: UILabel = {
         let label = UILabel(frame: CGRect(x: 154, y: 320, width: 80, height: 80))
         label.text = "5️⃣"
         label.isHidden = false
         return label
     }()
     
-    var cubeLabel6: UILabel = {
+    private let cubeLabel6: UILabel = {
         let label = UILabel(frame: CGRect(x: 224, y: 320, width: 80, height: 80))
         label.text = "6️⃣"
         label.isHidden = false
@@ -55,11 +55,10 @@ class CubeGameController: UIViewController {
         let startButton = UIButton()
         startButton.setTitle("Start", for: .normal)
         startButton.backgroundColor = .systemBlue
-        startButton.addAction(UIAction() { [weak self] _ in
+        startButton.addAction(UIAction { [weak self] _ in
             self?.startAction()
         }, for: .touchUpInside)
         startButton.layer.cornerRadius = 20
-       startButton.translatesAutoresizingMaskIntoConstraints = false
         return startButton
     }()
     
@@ -67,11 +66,10 @@ class CubeGameController: UIViewController {
         let restartButton = UIButton()
         restartButton.setTitle("Restart", for: .normal)
         restartButton.backgroundColor = .systemGray2
-        restartButton.addAction(UIAction() { [weak self] _ in
+        restartButton.addAction(UIAction { [weak self] _ in
             self?.restartAction()
         }, for: .touchUpInside)
         restartButton.layer.cornerRadius = 20
-        restartButton.translatesAutoresizingMaskIntoConstraints = false
         restartButton.isHidden = true
         return restartButton
     }()
@@ -79,32 +77,45 @@ class CubeGameController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-
         setupView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
     }
 
 }
 
 private extension CubeGameController {
     func setupView() {
-        view?.addSubview(cubeLabel1)
-        view?.addSubview(cubeLabel2)
-        view?.addSubview(cubeLabel3)
-        view?.addSubview(cubeLabel4)
-        view?.addSubview(cubeLabel5)
-        view?.addSubview(cubeLabel6)
+        view.addSubview(cubeLabel1)
+        view.addSubview(cubeLabel2)
+        view.addSubview(cubeLabel3)
+        view.addSubview(cubeLabel4)
+        view.addSubview(cubeLabel5)
+        view.addSubview(cubeLabel6)
         view.addSubview(startButton)
         view.addSubview(restartButton)
-        restartButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        startButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 475).isActive = true
-        startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        restartButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 475).isActive = true
+        makeConstaints()
+    }
+    
+    func makeConstaints() {
+        restartButton.translatesAutoresizingMaskIntoConstraints = false
+        startButton.translatesAutoresizingMaskIntoConstraints = false
         
-        startButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        startButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
+        NSLayoutConstraint.activate([
+            restartButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            startButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 475),
+            startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            restartButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 475),
+            
+            startButton.heightAnchor.constraint(equalToConstant: 36),
+            startButton.widthAnchor.constraint(equalToConstant: 224),
+            
+            restartButton.heightAnchor.constraint(equalToConstant: 36),
+            restartButton.widthAnchor.constraint(equalToConstant: 224),
+        ])
         
-        restartButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        restartButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
     }
     
     func startAction() {
